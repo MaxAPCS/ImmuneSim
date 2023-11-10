@@ -76,7 +76,7 @@ class Bacteria extends Organism {
 			return
 		}
 		if (this.target instanceof Organism ? !entities[this.target.r][this.target.c].has(this.target) : (this.target+=elapsedTicks()) >= 0)
-			this.target = fetchClosestTarget(this.sight) ?? -100;
+			this.target = this.fetchClosestTarget(this.sight) ?? -100;
 		if (this.target instanceof Organism) this.vel = p5.Vector.sub(this.target.pos, this.pos)
 		else this.vel.add(p5.Vector.random2D().setMag(0.1)).limit(1)
 		super.tick()
